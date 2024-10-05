@@ -8,6 +8,8 @@ The weights are all directly stored in BRAMs, which, although expensive, allow h
 
 The hidden layer sizes of this fully connected network are 27, 512, 1024, 1024, 1024, 1024, 512, 512, 256, and 6. This network is used with a magnetic sensor to estimate the relative location and power of the source.
 
+The software version is vivado 2023.2
+
 ## 1. Hardware Architecture
 The architecture is similar to another project not posted on my GitHub, which generally defines each layer as a pipeline stage. With good parallelism and retiming design, it promises high parallel speed.
 
