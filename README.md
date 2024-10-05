@@ -49,15 +49,17 @@ The weights before and after int4 format transfer are also registered.
 
 Steps:
 
-### 1.Estimate Scaling Factor Shifts: First, we use the trained result scaling factor to estimate the bits of arithmetic left shift to keep the activation layer as precise as possible while avoiding overflow. For example, layer1_scaling = 0.026445072144269943, approximated in binary as 0.0000011. So in hardware, there will be a 5-bit right shift after activation before storing in 32 bits.
+1.Estimate Scaling Factor Shifts: First, we use the trained result scaling factor to estimate the bits of arithmetic left shift to keep the activation layer as precise as possible while avoiding overflow. For example, layer1_scaling = 0.026445072144269943, approximated in binary as 0.0000011. So in hardware, there will be a 5-bit right shift after activation before storing in 32 bits.
 
-### 2.Simulate with Binary Input: Then we transfer the input data to binary and run a simulation to get the output when data is valid:
+2.Simulate with Binary Input: Then we transfer the input data to binary and run a simulation to get the output when data is valid:
 
 <img width="489" alt="image" src="https://github.com/user-attachments/assets/b1e9eaec-d17b-45bd-9e83-c0feaeda85dd">
-### 3.Compare Simulation Output: We compare the simulation output by multiplying the hardware coarse scaling factor and dividing by the floating-point scaling factor:
+
+3.Compare Simulation Output: We compare the simulation output by multiplying the hardware coarse scaling factor and dividing by the floating-point scaling factor:
 
 <img width="803" alt="image" src="https://github.com/user-attachments/assets/16930724-48d0-4432-8c2a-990a063860a2">
-###4.Layer-wise Comparison (Optional): If errors occur, we also compare the results of every activation layer.
+
+4.Layer-wise Comparison (Optional): If errors occur, we also compare the results of every activation layer.
 
 ## Further Improvement
 By observing that some layers are sparse, is there any possibility to use dropout and CSR (Compressed Sparse Row) matrix multiplication on hardware for more PPA?
