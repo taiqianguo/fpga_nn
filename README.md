@@ -2,7 +2,7 @@
 # Implementing a 4-bit Quantized Neural Network in Verilog for Edge AI Acceleration
 
 ## Introduction
-This simple project directly uses Verilog to write a speed-up neural network (NN) and tries to quantize it to 4 bits, which is not directly compatible with PyTorch. By exploring different quantization methods and results, we get a better understanding of low-level edge AI accelerator efficiency.
+This simple project directly uses Verilog to write a DNN inference accelerator and tries to quantize it to 4 bits, which is not directly compatible with PyTorch. By exploring different quantization methods and results, i get a better understanding of low-level edge AI accelerator efficiency.
 
 The weights are all directly stored in BRAMs, which, although expensive, allow high parallel potential not limited by memory bandwidth.
 
