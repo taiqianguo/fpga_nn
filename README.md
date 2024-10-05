@@ -26,7 +26,7 @@ The following core code is finally used, which defines the forward quantization 
 
 <img width="592" alt="image" src="https://github.com/user-attachments/assets/b4772f64-85a1-4d43-a05d-642b3df2ef61">
 
-Our aim is to quantize the weights and biases to int4 and the layer output to int32, which represents fixed-point numbers. One key point is that during training we need to estimate the distribution of weights to determine the scaling factor and zero point.
+Our aim is to quantize the weights and biases to int4 and the activation layer output to int32, which represents fixed-point numbers. One key point is that during training we need to estimate the distribution of weights to determine the scaling factor and zero point.
 
 A trade-off is that we enforce the zero point always to be zero (see the abs() in the code piece), then after each activation layer we do not need to reconstruct the float number from the scaling factor (float32) and zero points. We only need to use the scaling factor to determine the arithmetic right shift scaling (a coarse scaling requires no multiplier).
 
